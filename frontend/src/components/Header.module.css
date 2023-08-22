@@ -1,0 +1,24 @@
+.header {
+	padding: 1.2rem 1.4rem;
+	border: 1px solid white;
+	display: flex;
+	justify-content: space-between;
+	border-radius: var(--border-radius);
+}
+
+.brand {
+	font-size: 1.6rem;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+}
+
+.navItem {
+	font-size: 1.1rem;
+	display: flex;
+	margin-left: 2rem;
+	color: inherit;
+	text-decoration: none;
+}
