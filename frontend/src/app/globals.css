@@ -1,9 +1,8 @@
 :root {
-	/* --max-width: 1600px; */
-	--max-width: 700px;
+	--max-width: 1600px;
 	--border-radius: 12px;
 	--transition-speed: 0.2s;
-	--color-accent1: #e966a0;
+	--color-accent1: #3626a7;
 }
 
 * {
@@ -11,7 +10,7 @@
 }
 
 body {
-	margin: 1rem;
+	margin: 1.5rem;
 	color: white;
 	background-color: black;
 	font-weight: 300;

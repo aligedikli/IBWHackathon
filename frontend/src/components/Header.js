@@ -1,13 +1,15 @@
+"use client";
+
 import { cn } from "@/utils";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import "@rainbow-me/rainbowkit/styles.css";
 import Link from "next/link";
 import styles from "./Header.module.css";
 
 export default function Header() {
 	return (
 		<header className={cn(styles.header, "container")}>
-			<div>
-				<b className={styles.brand}>Marifah</b>
-			</div>
+			<b className={styles.brand}>MaariFi</b>
 			<nav className={styles.nav}>
 				<Link href="#" className={styles.navItem}>
 					Courses
@@ -18,6 +20,11 @@ export default function Header() {
 				<Link href="#" className={styles.navItem}>
 					Courses
 				</Link>
+				<ConnectButton
+					accountStatus="avatar"
+					showBalance={false}
+					chainStatus="none"
+				/>
 			</nav>
 		</header>
 	);
