@@ -12,13 +12,10 @@ export default function Header() {
 			<b className={styles.brand}>MaariFi</b>
 			<nav className={styles.nav}>
 				<Link href="#" className={styles.navItem}>
-					Courses
+					My Courses
 				</Link>
 				<Link href="#" className={styles.navItem}>
-					Courses
-				</Link>
-				<Link href="#" className={styles.navItem}>
-					Courses
+					Profile
 				</Link>
 				<ConnectButton
 					accountStatus="avatar"
