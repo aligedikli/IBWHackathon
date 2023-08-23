@@ -3,60 +3,47 @@ const users = [
 		id: "1",
 		name: "Osman Nuri Yıldız",
 		role: "admin",
-		email: "osman@example.com",
-		password: "123123",
+		walletAddress: "0xcA55a9af87fe30e0532D56DbA23D05153561369f",
 	},
 	{
 		id: "2",
 		name: "Baturalp Güvenç",
 		role: "educator",
-		email: "baturalp@example.com",
-		password: "123123",
+		walletAddress: "0xa9f114723cCd80e8759e08130D99097Ea0B4e3Ef",
 	},
 	{
 		id: "3",
 		name: "Ali Gedikli",
 		role: "student",
-		email: "ali@example.com",
-		password: "123123",
+		walletAddress: "0x36dbF91095e771E290c3d6BC2A3332b04257c6D7",
 	},
 	{
 		id: "4",
 		name: "Tayfur Duran",
 		role: "donator",
-		email: "tayfur@example.com",
-		password: "123123",
+		walletAddress: "0x345287f00baB08de45e8f5a3d7A007eC37eF1581",
 	},
 ];
 
-export const login = async (req, res) => {
-	const { email, password } = req.body;
-	if (!email || !password) {
-		return res.status(400).json({
+export const getMe = async (req, res) => {
+	const walletAddress = req.headers["authentication"]?.split(" ")[1];
+	if (!walletAddress) {
+		return res.status(401).json({
 			ok: false,
-			message: "Lütfen tüm alanları doldurun.",
+			message: "Cüzdan adresi sağlanmadı.",
 		});
 	}
 
-	const user = users.find((u) => u.email === email);
+	const user = users.find((u) => u.walletAddress === walletAddress);
 	if (!user) {
 		return res.status(401).json({
 			ok: false,
-			message: "Bu e-posta adresiyle kayıtlı bir kullanıcı bulunmamaktadır.",
+			message: "Bu cüzdan adresiyle kayıtlı bir kullanıcı bulunmamaktadır.",
 		});
 	}
-
-	if (password !== user.password) {
-		return res.status(401).json({
-			ok: false,
-			message: "Şifre yanlış.",
-		});
-	}
-
-	const token = createTokenForUser(user);
 
 	return res.json({
 		ok: true,
-		data: token,
+		data: user,
 	});
 };

@@ -9,7 +9,7 @@ export const router = express.Router();
 router.get("/test", testController.test);
 
 // AUTH
-router.get("/login", authController.login);
+router.get("/me", authController.getMe);
 
 // COURSES
 router.get("/courses", coursesController.getAll);

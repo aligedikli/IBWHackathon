@@ -10,7 +10,7 @@ export default function Home() {
 
 	useEffect(() => {
 		fetchCourses();
-	});
+	}, []);
 
 	const fetchCourses = async () => {
 		const resp = await fetch(`${CONFIG.BACKEND_ADDRESS}/courses`);
