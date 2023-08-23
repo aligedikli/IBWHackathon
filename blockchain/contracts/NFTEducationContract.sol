@@ -8,6 +8,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 contract NFTEducationContract is ERC721, Ownable {
     IERC20 public haqqToken;
     uint256 public requestCounter;
+    uint256 public nftId;
 
     mapping(uint256 => uint256) public courseStakeStartTime;
     mapping(uint256 => uint256) public courseStakeDuration;
@@ -20,11 +21,12 @@ contract NFTEducationContract is ERC721, Ownable {
     ) ERC721("NFTEducationToken", "NFTEDU") {
         haqqToken = IERC20(_haqqTokenAddress);
         requestCounter = 1;
+		nftId = 0;
     }
 
-    modifier onlyCourseOwner(uint256 _courseId) {
+    modifier onlyCourseOwner(uint256 _nftId) {
         require(
-            ownerOf(_courseId) == msg.sender,
+            ownerOf(_nftId) == msg.sender,
             "Only the owner of the course can call this function"
         );
         _;
@@ -32,28 +34,29 @@ contract NFTEducationContract is ERC721, Ownable {
 
     function mintCourse(uint256 courseId, address recipient) external onlyOwner {
         _mint(recipient, courseId);
+		nftId++;
     }
 
     function stakeCourse(
-        uint256 courseId,
+        uint256 nftId,
         uint256 duration
-    ) external onlyCourseOwner(courseId) {
+    ) external onlyCourseOwner(nftId) {
         require(
-            courseStakeStartTime[courseId] == 0,
+            courseStakeStartTime[nftId] == 0,
             "Course is already staked"
         );
 
-        courseStakeStartTime[courseId] = block.timestamp;
-        courseStakeDuration[courseId] = duration;
+        courseStakeStartTime[nftId] = block.timestamp;
+        courseStakeDuration[nftId] = duration;
     }
 
     function completeCourse(
-        uint256 courseId
-    ) external view onlyCourseOwner(courseId) {
-        require(courseStakeStartTime[courseId] > 0, "Course is not staked");
+        uint256 nftId
+    ) external view onlyCourseOwner(nftId) {
+        require(courseStakeStartTime[nftId] > 0, "Course is not staked");
         require(
             block.timestamp >=
-                courseStakeStartTime[courseId] + courseStakeDuration[courseId],
+                courseStakeStartTime[nftId] + courseStakeDuration[nftId],
             "Course stake duration not passed"
         );
     }
@@ -65,23 +68,23 @@ contract NFTEducationContract is ERC721, Ownable {
         _transfer(owner(), requester, requestId); // Transfer the NFT
     }
 
-    function claimReward(uint256 courseId) external onlyCourseOwner(courseId) {
+    function claimReward(uint256 nftId) external onlyCourseOwner(nftId) {
         require(
-            ownerOf(courseId) != msg.sender,
+            ownerOf(nftId) != msg.sender,
             "Course owner cannot claim reward"
         );
-        require(courseStakeStartTime[courseId] > 0, "Course is not staked");
+        require(courseStakeStartTime[nftId] > 0, "Course is not staked");
         require(
             block.timestamp >=
-                courseStakeStartTime[courseId] + courseStakeDuration[courseId],
+                courseStakeStartTime[nftId] + courseStakeDuration[nftId],
             "Course stake duration not passed"
         );
 
-        uint256 rewardAmount = calculateReward(courseStakeDuration[courseId]);
-        courseStakeStartTime[courseId] = 0; // Reset stake details
+        uint256 rewardAmount = calculateReward(courseStakeDuration[nftId]);
+        courseStakeStartTime[nftId] = 0; // Reset stake details
 
         haqqToken.transfer(msg.sender, rewardAmount);
-        _burn(courseId); // Burn the NFT after reward claim
+        _burn(nftId); // Burn the NFT after reward claim
     }
 
     function calculateReward(uint256 duration) internal pure returns (uint256) {
