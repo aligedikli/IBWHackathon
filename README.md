@@ -20,6 +20,8 @@ The general use case included in the project highlights how the platform enables
 
 This project brings together an innovative approach and social impact in the field of education, providing students with an accessible education opportunity and enabling philanthropic investors to create value for this purpose. Educators can both benefit students and increase their value by providing training on the platform. The community, on the other hand, contributes to the transformative power of education by collaborating through the platform.
 
+You can see the document part we made on Figma here: https://www.figma.com/file/Gf7U8L9iEn38htsawNPoeF/MaariFi?type=whiteboard&node-id=0%3A1&t=6H6DuuYXt17sqoV7-1
+
 ## Running the project
 
 ### Contract
