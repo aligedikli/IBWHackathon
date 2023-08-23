@@ -1,6 +1,7 @@
 "use client";
 
 import Header from "@/components/Header";
+import WalletManager from "@/components/WalletManager";
 import {
 	RainbowKitProvider,
 	darkTheme,
@@ -48,6 +49,7 @@ export default function RootLayout({ children }) {
 							accentColorForeground: "white",
 						})}
 					>
+						<WalletManager />
 						<Header />
 						<main>{children}</main>
 					</RainbowKitProvider>
