@@ -20,3 +20,44 @@ Projede yer alan genel kullanım senaryosu, platformun topluluk etkileşimine ve
 
 Bu proje, eğitim alanında yenilikçi bir yaklaşımı ve sosyal etkiyi bir araya getirerek hem öğrencilere erişilebilir eğitim imkanı sunuyor hem de hayırsever yatırımcıların bu amaç için değer yaratmasını sağlıyor. Eğitimciler de platform üzerinde eğitim vererek hem öğrencilere fayda sağlıyor hem de kendi değerlerini artırabiliyorlar. Topluluk ise platform aracılığıyla işbirliği yaparak eğitimin dönüştürücü gücüne katkı sağlıyor.
 
+## Running the project
+
+### Contract
+
+Note: You should create `blockchain/.env` file with the following content:
+
+(substitute `<...>` with the deployer wallet's private key obtained from Metamask)
+
+```sh
+PRIVATE_KEY=<...>
+```
+
+After that:
+
+```sh
+cd blockchain
+npm i
+npx hardhat run --network testedge scripts/deploy.js
+```
+
+Take note of the contract address printed after this command.
+
+### Backend
+
+In another terminal:
+
+```sh
+cd backend
+npm i
+npm start
+```
+
+### Frontend
+
+In another terminal:
+
+```sh
+cd frontend
+npm i
+npm run dev
+```
