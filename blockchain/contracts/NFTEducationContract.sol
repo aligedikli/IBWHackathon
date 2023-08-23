@@ -12,8 +12,8 @@ contract NFTEducationContract is ERC721, Ownable {
     mapping(uint256 => uint256) public courseStakeStartTime;
     mapping(uint256 => uint256) public courseStakeDuration;
 
-    mapping(uint256 => address) public transferRequesters;
-    mapping(uint256 => bool) public approvedTransferRequests;
+    mapping(uint256 => address) public transferRequesters; // delete
+    mapping(uint256 => bool) public approvedTransferRequests; // delete
 
     constructor(
         address _haqqTokenAddress
@@ -26,14 +26,6 @@ contract NFTEducationContract is ERC721, Ownable {
         require(
             ownerOf(_courseId) == msg.sender,
             "Only the owner of the course can call this function"
-        );
-        _;
-    }
-
-    modifier validRequestId(uint256 _requestId) {
-        require(
-            _requestId >= 1 && _requestId < requestCounter,
-            "Invalid requestId"
         );
         _;
     }
@@ -66,27 +58,10 @@ contract NFTEducationContract is ERC721, Ownable {
         );
     }
 
-    function createTransferRequest(uint256 courseId) external {
-        require(_exists(courseId), "Course does not exist");
-
-        uint256 requestId = requestCounter;
-        transferRequesters[requestId] = msg.sender;
-        approvedTransferRequests[requestId] = false;
-        requestCounter++;
-    }
-
     function approveTransferRequest(
         uint256 requestId
-    ) external onlyOwner validRequestId(requestId) {
-        require(
-            !approvedTransferRequests[requestId],
-            "Request already approved"
-        );
-
-        approvedTransferRequests[requestId] = true;
-
+    ) external onlyOwner {
         address requester = transferRequesters[requestId];
-
         _transfer(owner(), requester, requestId); // Transfer the NFT
     }
 
@@ -113,18 +88,5 @@ contract NFTEducationContract is ERC721, Ownable {
         // Implement your reward calculation logic here based on duration
         // This is just a placeholder
         return duration * 1000;
-    }
-
-    function getTransferRequest(
-        uint256 requestId
-    )
-        external
-        view
-        validRequestId(requestId)
-        returns (address requester, bool isApproved, uint256 courseId)
-    {
-        requester = transferRequesters[requestId];
-        isApproved = approvedTransferRequests[requestId];
-        courseId = requestId;
     }
 }
