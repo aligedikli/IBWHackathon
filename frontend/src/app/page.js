@@ -2,7 +2,7 @@
 
 import CourseGrid from "@/components/CourseGrid";
 import { CONFIG } from "@/config";
-import { zakatToken } from "@/contracts";
+import { nftEducationContract } from "@/contracts";
 import { useEffect, useState } from "react";
 import {
 	useAccount,
@@ -18,13 +18,13 @@ export default function Home() {
 
 	const [courses, setCourses] = useState();
 
-	// const { data: distributedZakat } = useContractRead({
-	// 	address: zakatToken.address,
-	// 	abi: zakatToken.abi,
-	// 	functionName: "distributedZakat",
-	// 	watch: true,
-	// });
-	// console.log(distributedZakat);
+	const { data: requestCounter } = useContractRead({
+		address: nftEducationContract.contractAddress,
+		abi: nftEducationContract.abi,
+		functionName: "requestCounter",
+		watch: true,
+	});
+	console.log(requestCounter);
 
 	// const { data: calculatedZakat } = useContractRead({
 	// 	address: zakatToken.address,
@@ -34,50 +34,50 @@ export default function Home() {
 	// });
 	// console.log(calculatedZakat);
 
-	const { data: userZakatRecipient } = useContractRead({
-		address: zakatToken.address,
-		abi: zakatToken.abi,
-		functionName: "getUserZakatRecipient",
-		args: [address],
-		watch: true,
-	});
-	console.log("hey userZakatRecipient:", userZakatRecipient);
+	// const { data: userZakatRecipient } = useContractRead({
+	// 	address: zakatToken.address,
+	// 	abi: zakatToken.abi,
+	// 	functionName: "getUserZakatRecipient",
+	// 	args: [address],
+	// 	watch: true,
+	// });
+	// console.log("hey userZakatRecipient:", userZakatRecipient);
 
-	const { config: setUserZakatRecipientAsEducatorConfig } =
-		usePrepareContractWrite({
-			address: zakatToken.address,
-			abi: zakatToken.abi,
-			functionName: "setUserZakatRecipient",
-			args: ["0xa9f114723cCd80e8759e08130D99097Ea0B4e3Ef"],
-		});
-	const {
-		data: setUserZakatRecipientAsEducatorResult,
-		write: setUserZakatRecipientAsEducatorWrite,
-	} = useContractWrite(setUserZakatRecipientAsEducatorConfig);
-	const {
-		isLoading: isSetUserZakatRecipientAsEducatorLoading,
-		isSuccess: isSetUserZakatRecipientAsEducatorSuccess,
-	} = useWaitForTransaction({
-		hash: setUserZakatRecipientAsEducatorResult?.hash,
-	});
+	// const { config: setUserZakatRecipientAsEducatorConfig } =
+	// 	usePrepareContractWrite({
+	// 		address: zakatToken.address,
+	// 		abi: zakatToken.abi,
+	// 		functionName: "setUserZakatRecipient",
+	// 		args: ["0xa9f114723cCd80e8759e08130D99097Ea0B4e3Ef"],
+	// 	});
+	// const {
+	// 	data: setUserZakatRecipientAsEducatorResult,
+	// 	write: setUserZakatRecipientAsEducatorWrite,
+	// } = useContractWrite(setUserZakatRecipientAsEducatorConfig);
+	// const {
+	// 	isLoading: isSetUserZakatRecipientAsEducatorLoading,
+	// 	isSuccess: isSetUserZakatRecipientAsEducatorSuccess,
+	// } = useWaitForTransaction({
+	// 	hash: setUserZakatRecipientAsEducatorResult?.hash,
+	// });
 
-	const { config: setUserZakatRecipientAsStudentConfig } =
-		usePrepareContractWrite({
-			address: zakatToken.address,
-			abi: zakatToken.abi,
-			functionName: "setUserZakatRecipient",
-			args: ["0x36dbF91095e771E290c3d6BC2A3332b04257c6D7"],
-		});
-	const {
-		data: setUserZakatRecipientAsStudentResult,
-		write: setUserZakatRecipientAsStudentWrite,
-	} = useContractWrite(setUserZakatRecipientAsStudentConfig);
-	const {
-		isLoading: isSetUserZakatRecipientAsStudentLoading,
-		isSuccess: isSetUserZakatRecipientAsStudentSuccess,
-	} = useWaitForTransaction({
-		hash: setUserZakatRecipientAsStudentResult?.hash,
-	});
+	// const { config: setUserZakatRecipientAsStudentConfig } =
+	// 	usePrepareContractWrite({
+	// 		address: zakatToken.address,
+	// 		abi: zakatToken.abi,
+	// 		functionName: "setUserZakatRecipient",
+	// 		args: ["0x36dbF91095e771E290c3d6BC2A3332b04257c6D7"],
+	// 	});
+	// const {
+	// 	data: setUserZakatRecipientAsStudentResult,
+	// 	write: setUserZakatRecipientAsStudentWrite,
+	// } = useContractWrite(setUserZakatRecipientAsStudentConfig);
+	// const {
+	// 	isLoading: isSetUserZakatRecipientAsStudentLoading,
+	// 	isSuccess: isSetUserZakatRecipientAsStudentSuccess,
+	// } = useWaitForTransaction({
+	// 	hash: setUserZakatRecipientAsStudentResult?.hash,
+	// });
 
 	useEffect(() => {
 		fetchCourses();
@@ -89,21 +89,20 @@ export default function Home() {
 		setCourses(respData.data);
 	};
 
-	const addTokenToMetamask = async () => {
-		const result = await window.ethereum?.request({
-			method: "wallet_watchAsset",
-			params: {
-				type: "ERC20",
-				options: {
-					address: zakatToken.address,
-					decimals: 18,
-					name: "Zakat",
-					symbol: "ZAKAT",
-				},
-			},
-		});
-		console.log("hey add token to mm result:", result);
-	};
+	// const addTokenToMetamask = async () => {
+	// 	const result = await window.ethereum?.request({
+	// 		method: "wallet_watchAsset",
+	// 		params: {
+	// 			type: nftEducationContract.tokenType,
+	// 			options: {
+	// 				address: nftEducationContract.contractAddress,
+	// 				name: nftEducationContract.tokenName,
+	// 				symbol: nftEducationContract.tokenSymbol,
+	// 			},
+	// 		},
+	// 	});
+	// 	console.log("hey add token to mm result:", result);
+	// };
 
 	return (
 		<div className="container">
