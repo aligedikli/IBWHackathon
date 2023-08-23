@@ -17,7 +17,7 @@ export default function WalletManager() {
 	const fetchMe = async () => {
 		const resp = await fetch(`${CONFIG.BACKEND_ADDRESS}/me`, {
 			headers: {
-				Authentication: `Basic ${address}`,
+				authorization: `Basic ${address}`,
 			},
 		});
 		const respData = await resp.json();

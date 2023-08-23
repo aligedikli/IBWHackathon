@@ -2,29 +2,21 @@
 
 import CourseGrid from "@/components/CourseGrid";
 import { CONFIG } from "@/config";
-import { nftEducationContract } from "@/contracts";
 import { useEffect, useState } from "react";
-import {
-	useAccount,
-	useContractRead,
-	useContractWrite,
-	usePrepareContractWrite,
-	useWaitForTransaction,
-} from "wagmi";
 import styles from "./page.module.css";
 
 export default function Home() {
-	const { address } = useAccount();
+	// const { address } = useAccount();
 
 	const [courses, setCourses] = useState();
 
-	const { data: requestCounter } = useContractRead({
-		address: nftEducationContract.contractAddress,
-		abi: nftEducationContract.abi,
-		functionName: "requestCounter",
-		watch: true,
-	});
-	console.log(requestCounter);
+	// const { data: requestCounter } = useContractRead({
+	// 	address: nftEducationContract.contractAddress,
+	// 	abi: nftEducationContract.abi,
+	// 	functionName: "requestCounter",
+	// 	watch: true,
+	// });
+	// console.log(requestCounter);
 
 	// const { data: calculatedZakat } = useContractRead({
 	// 	address: zakatToken.address,
@@ -108,7 +100,7 @@ export default function Home() {
 		<div className="container">
 			<h1 className={styles.title}>Courses</h1>
 			<CourseGrid courses={courses} />
-			<button type="button" onClick={() => addTokenToMetamask()}>
+			{/* <button type="button" onClick={() => addTokenToMetamask()}>
 				add token to mm
 			</button>
 			<button
@@ -122,7 +114,7 @@ export default function Home() {
 				onClick={() => setUserZakatRecipientAsStudentWrite()}
 			>
 				set zakat recipient as student
-			</button>
+			</button> */}
 		</div>
 	);
 }

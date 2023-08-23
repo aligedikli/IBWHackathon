@@ -1,8 +1,9 @@
 .header {
 	padding: 1.2rem 1.4rem;
-	border: 1px solid white;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
+	border: 1px solid white;
 	border-radius: var(--border-radius);
 }
 
