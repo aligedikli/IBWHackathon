@@ -1,24 +1,24 @@
-# Hayırseverlikle Desteklenen NFT Tabanlı Eğitim Platformu
+# NFT-Based Education Platform Backed by Philanthropy
 
-## Günümüzde eğitim, fırsat eşitsizliği ve erişim zorlukları gibi zorluklarla karşılaşmaktadır. Ancak, teknolojinin sunduğu olanaklar sayesinde, inovatif projeler bu sorunları çözmek için önemli adımlar atabilir. İşte hayırsever yatırımcıların desteklediği NFT tabanlı eğitim platformu projesi, eğitim alanında köklü bir değişimi temsil ediyor.
+## Education today faces challenges such as inequality of opportunity and access difficulties. However, thanks to the possibilities offered by technology, innovative projects can take important steps to solve these problems. Here, the NFT-based education platform project, supported by philanthropic investors, represents a radical change in the field of education.
 
-Erişilebilir ve Motive Edici Eğitim
+Accessible and Motivating Education
 
-Bu projenin temel amacı, yoksul öğrencilere destek olmak ve onları eğitimle buluşturmak. Öğrenciler, eğitim platformuna kaydolarak ilgi alanlarına ve ihtiyaçlarına uygun eğitim kursları arasından seçim yapma imkanı bulurlar. Her bir eğitim kursunun tamamlanmasında öğrenciler NFT'leri "stake" ederler ve başarılarına dayalı ödüller kazanırlar. Bu mekanizma, öğrencilerin motive olmasını ve eğitimlerini daha verimli bir şekilde tamamlamalarını sağlar.
+The primary purpose of this project is to support poor students and bring them together with education. By registering on the training platform, students have the opportunity to choose from training courses that suit their interests and needs. Upon completion of each training course, students stake NFTs and earn rewards based on their achievements. This mechanism allows students to be motivated and complete their education more efficiently.
 
-Eğitime Destek ve Değer Artışı
+Education Support and Value Increase
 
-Projeyi desteklemek isteyen hayırsever yatırımcılar için platform çeşitli seçenekler sunar. Yatırımcılar, tokenlarla destekleme, NFT'ler aracılığıyla eğitim sağlama veya eğitim materyallerine doğrudan katkıda bulunma gibi yöntemlerle projeye destek olabilirler. Bu yatırımların değeri, öğrencilerin başarısı ve platformun büyümesiyle artabilir. Yatırımcılar kazançlarını yeniden yatırabilir veya eğitim bursları gibi amaçlara yönlendirebilirler.
+For philanthropic investors who want to support the project, the platform offers a variety of options. Investors can support the project in ways such as backing it with tokens, providing training through NFTs, or directly contributing to training materials. The value of these investments can increase with student success and the growth of the platform. Investors can reinvest their earnings or channel them for purposes such as educational scholarships.
 
-Eğitim Verme ve İçerik Üretme
+Teaching and Creating Content
 
-Eğitmenler, platform üzerinde uzmanlık alanlarına dayalı eğitim kursları oluşturabilirler. Bu kursları NFT tabanlı hale getirerek öğrencilere ödüller sağlayabilirler. Eğitmenler, eğitim materyallerini sunarken öğrencilerin ilerlemesini ve katılımını izleyebilir, platformun topluluk bölümünde diğer eğitmenlerle ve öğrencilerle etkileşimde bulunabilirler.
+Instructors can create training courses based on their area of expertise on the platform. By making these courses NFT-based, they can provide rewards to students. Instructors can monitor student progress and engagement while presenting educational materials, and interact with other instructors and students in the community section of the platform.
 
-Topluluk ve İşbirliği
+Community and Collaboration
 
-Projede yer alan genel kullanım senaryosu, platformun topluluk etkileşimine ve işbirliğine nasıl olanak tanıdığını vurgular. Kullanıcılar, topluluk etkinliklerine katılabilir, deneyimlerini paylaşabilir, işbirliği fırsatları arayabilir ve projenin gelişimine katkıda bulunabilirler.
+The general use case included in the project highlights how the platform enables community interaction and collaboration. Users can participate in community events, share their experiences, seek collaboration opportunities, and contribute to the project's development.
 
-Bu proje, eğitim alanında yenilikçi bir yaklaşımı ve sosyal etkiyi bir araya getirerek hem öğrencilere erişilebilir eğitim imkanı sunuyor hem de hayırsever yatırımcıların bu amaç için değer yaratmasını sağlıyor. Eğitimciler de platform üzerinde eğitim vererek hem öğrencilere fayda sağlıyor hem de kendi değerlerini artırabiliyorlar. Topluluk ise platform aracılığıyla işbirliği yaparak eğitimin dönüştürücü gücüne katkı sağlıyor.
+This project brings together an innovative approach and social impact in the field of education, providing students with an accessible education opportunity and enabling philanthropic investors to create value for this purpose. Educators can both benefit students and increase their value by providing training on the platform. The community, on the other hand, contributes to the transformative power of education by collaborating through the platform.
 
 ## Running the project
 
